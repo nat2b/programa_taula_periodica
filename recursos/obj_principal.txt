@@ -1,0 +1,25 @@
+
+package taulaperiodica;
+
+/**
+ *
+ * @author natalia
+ * 15-11-2020
+ * 
+ */
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        TaulaPeriodica tP = new TaulaPeriodica();
+        
+        Controlador controlador = new Controlador(tP);
+
+        Vista vista = new Vista(controlador);
+        controlador.setVista(vista);
+        vista.inicia(controlador);
+    }
+    
+}

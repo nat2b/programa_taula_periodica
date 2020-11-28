@@ -1,0 +1,701 @@
+
+package taulaperiodica;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.util.HashMap;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
+/**
+ *
+ * @author natal
+ */
+public class Vista extends javax.swing.JFrame {
+    
+    private Controlador contr;
+    private DefaultListModel demoList;
+    private JFrame frame;
+    private String numAt;
+    private String simbol;
+    private int numEncerts;
+    private int intents;
+    private String valor;
+    private String color;
+    private String key;
+
+    /**
+     * Creates new form Vista
+     */
+    public Vista(Controlador controlador) {
+        
+        demoList = new DefaultListModel();
+        this.contr = controlador;
+        initComponents();
+        configuracioInicial();
+        
+    }
+    
+    public void inicia(Controlador contr) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Vista(contr).setVisible(true);
+            }
+        });
+    }
+    
+    public void configuracioInicial() {
+        this.setTitle("Joc taula periòdica");
+        btnAjuda.setEnabled(false);
+        jList1.setEnabled(false);
+        btnReinicia.setEnabled(false);
+        lblInfo.setVisible(true);
+        creaFrameAjuda();
+        txtNumAt.setEditable(false);
+        txtSimbol.setEditable(false);
+        txtEncert.setEditable(false);
+        btnValida.setEnabled(false);
+        txtRestants.setEditable(false);
+        pnlElement.setBackground(Color.lightGray);
+        imatgeAjuda();
+        lblError.setVisible(false);
+        lblError.setForeground(Color.red);
+        txtNumAt.setHorizontalAlignment(JTextField.CENTER);
+        txtSimbol.setHorizontalAlignment(JTextField.CENTER);
+        lblNom.setHorizontalAlignment(JTextField.CENTER);        
+        txtEncert.setHorizontalAlignment(JTextField.CENTER);
+        txtRestants.setHorizontalAlignment(JTextField.CENTER);
+        btnValida.setEnabled(false);
+        lblRespostes.setHorizontalAlignment(JLabel.CENTER);
+        
+        
+    }
+    
+    public void imatgeAjuda() {
+        ImageIcon icono = crearImatge("../imatges/ajuda.png");
+        Image image = icono.getImage(); // transform t 
+        Image newimg = image.getScaledInstance(btnAjuda.getWidth(), btnAjuda.getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        icono = new ImageIcon(newimg);
+        btnAjuda.setIcon(icono);
+    }
+    
+    public void creaFrameAjuda() {
+        frame = new JFrame("Imatge taula periòdica");
+        frame.setPreferredSize(new Dimension(650, 450));
+        frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        
+        JLabel lbl = new JLabel();
+        lbl.setSize(650, 450);
+        ImageIcon icono = crearImatge("../imatges/taulaP.png");
+        Image image = icono.getImage(); // transform t 
+        Image newimg = image.getScaledInstance(lbl.getWidth(), lbl.getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        icono = new ImageIcon(newimg);
+        lbl.setIcon(icono);
+        
+        frame.add(lbl);
+        frame.pack();
+        
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        blocS = new javax.swing.JCheckBox();
+        blocP = new javax.swing.JCheckBox();
+        blocD = new javax.swing.JCheckBox();
+        blocF = new javax.swing.JCheckBox();
+        btnInicia = new javax.swing.JButton();
+        btnReinicia = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        pnlElement = new javax.swing.JPanel();
+        lblNom = new javax.swing.JLabel();
+        txtNumAt = new javax.swing.JTextField();
+        txtSimbol = new javax.swing.JTextField();
+        btnAjuda = new javax.swing.JButton();
+        btnValida = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtEncert = new javax.swing.JTextField();
+        lblInfo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtRestants = new javax.swing.JTextField();
+        lblError = new javax.swing.JLabel();
+        lblRespostes = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNomEl = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel1.setText("Selecciona de què et vols examinar:");
+
+        blocS.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        blocS.setText("Bloc s");
+
+        blocP.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        blocP.setText("Bloc p");
+
+        blocD.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        blocD.setText("Bloc d");
+        blocD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blocDActionPerformed(evt);
+            }
+        });
+
+        blocF.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        blocF.setText("Bloc f");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(blocP, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(blocD, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(blocF, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(blocS, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(blocS)
+                .addGap(18, 18, 18)
+                .addComponent(blocP)
+                .addGap(18, 18, 18)
+                .addComponent(blocD)
+                .addGap(18, 18, 18)
+                .addComponent(blocF)
+                .addContainerGap())
+        );
+
+        btnInicia.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnInicia.setText("Inicia");
+        btnInicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciaActionPerformed(evt);
+            }
+        });
+
+        btnReinicia.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnReinicia.setText("Reinicia");
+        btnReinicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReiniciaActionPerformed(evt);
+            }
+        });
+
+        jList1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        pnlElement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlElement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlElementMouseEntered(evt);
+            }
+        });
+
+        lblNom.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
+        lblNom.setText("Nom element");
+
+        txtNumAt.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        txtNumAt.setText("Núm. atòmic");
+        txtNumAt.setToolTipText("");
+        txtNumAt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNumAtFocusGained(evt);
+            }
+        });
+        txtNumAt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNumAtMouseEntered(evt);
+            }
+        });
+        txtNumAt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumAtKeyTyped(evt);
+            }
+        });
+
+        txtSimbol.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        txtSimbol.setText("Símbol");
+        txtSimbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtSimbolMouseEntered(evt);
+            }
+        });
+
+        btnAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAjudaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlElementLayout = new javax.swing.GroupLayout(pnlElement);
+        pnlElement.setLayout(pnlElementLayout);
+        pnlElementLayout.setHorizontalGroup(
+            pnlElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlElementLayout.createSequentialGroup()
+                .addGroup(pnlElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlElementLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btnAjuda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlElementLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNom, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                    .addGroup(pnlElementLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNumAt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSimbol))))
+                .addContainerGap())
+        );
+        pnlElementLayout.setVerticalGroup(
+            pnlElementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlElementLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(txtSimbol, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumAt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAjuda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(lblNom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        btnValida.setText("Valida");
+        btnValida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel2.setText("Encert: ");
+
+        txtEncert.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtEncert.setText(" ");
+
+        lblInfo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblInfo.setText("Selecciona un element i completa'l amb el núm. atòmic i el símbol:");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel4.setText("Restants:");
+
+        txtRestants.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        lblError.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        lblError.setText("Has de seleccionar com a mínim un camp:");
+
+        lblRespostes.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        lblNomEl.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        lblNomEl.setText(" ");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3)
+                            .addComponent(lblRespostes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(lblNomEl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtRestants))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtEncert)))
+                                .addGap(95, 95, 95))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnValida, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pnlElement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(94, 94, 94)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(2, 2, 2))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(lblError)
+                                    .addGap(27, 27, 27)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnReinicia, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30))))
+                    .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(pnlElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)
+                                .addComponent(btnValida)
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtEncert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtRestants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(41, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblError)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(90, 90, 90)
+                                        .addComponent(jLabel3)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(lblNomEl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblRespostes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(234, 234, 234))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnReinicia, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(31, 31, 31))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void blocDActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    private void btnReiniciaActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        configuracioInicial();
+        novaPartida();
+    }                                           
+
+    private void btnIniciaActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        if (!blocS.isSelected()
+                && !blocP.isSelected()
+                && !blocD.isSelected()
+                && !blocF.isSelected()) {
+            lblError.setVisible(true);
+            return;
+            
+        }
+        
+        lblError.setVisible(false);
+        if (blocS.isSelected()) {
+            afegeixBlocLlista(contr.getBlocS());
+            
+        }
+        if (blocP.isSelected()) {
+            afegeixBlocLlista(contr.getBlocP());
+        }
+        if (blocD.isSelected()) {
+            afegeixBlocLlista(contr.getBlocD());
+        }
+        if (blocF.isSelected()) {
+            afegeixBlocLlista(contr.getBlocF());
+        }
+        
+        ableOpcions();
+        completaLlista();
+    }                                         
+
+    private void btnAjudaActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        frame.setVisible(true);
+    }                                        
+    
+    public void color(String str) {
+        switch (str) {
+            case "S":
+                pnlElement.setBackground(Color.blue);
+                break;
+            case "D":
+                pnlElement.setBackground(Color.red);
+                break;
+            case "P":
+                pnlElement.setBackground(Color.green);
+                break;
+            case "F":
+                pnlElement.setBackground(Color.ORANGE);
+                break;
+            default:
+                pnlElement.setBackground(Color.lightGray);
+        }
+    }
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        if (!jList1.isEnabled()) {
+            return;
+        }
+        pnlElement.setVisible(true);
+        lblInfo.setVisible(true);
+        
+        key = jList1.getSelectedValue();
+        lblNom.setText(key);
+        valor = contr.getSpecificValue(key);
+        
+        String parts[] = valor.split(",");
+        numAt = parts[1];
+        simbol = parts[0];
+        color = parts[2];
+        
+        txtNumAt.setEditable(false);
+        txtSimbol.setEditable(false);
+        txtNumAt.setText("Núm. atòmic");
+        txtSimbol.setText("Símbol");
+        color(color);
+        
+        btnValida.setEnabled(true);
+        
+        txtRestants.setText(String.valueOf(jList1.getModel().getSize()));
+        
+
+    }                                   
+
+    private void txtNumAtKeyTyped(java.awt.event.KeyEvent evt) {                                  
+
+    }                                 
+
+    private void pnlElementMouseEntered(java.awt.event.MouseEvent evt) {                                        
+
+    }                                       
+
+    private void txtNumAtFocusGained(java.awt.event.FocusEvent evt) {                                     
+
+    }                                    
+
+    private void txtNumAtMouseEntered(java.awt.event.MouseEvent evt) {                                      
+        txtNumAt.setEditable(true);
+        if (txtNumAt.getText().equals("Núm. atòmic")) {
+            txtNumAt.setText("");
+        }
+    }                                     
+
+    private void txtSimbolMouseEntered(java.awt.event.MouseEvent evt) {                                       
+        txtSimbol.setEditable(true);
+        if (txtSimbol.getText().equals("Símbol")) {
+            txtSimbol.setText("");
+        }
+    }                                      
+
+    private void btnValidaActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        String valorNumAt = txtNumAt.getText();
+        String valorSimbol = txtSimbol.getText();
+        
+        
+        intents++;
+        if (valorSimbol.equals(simbol) && valorNumAt.equals(numAt)) {
+            txtEncert.setBackground(Color.GREEN);
+            numEncerts++;
+            lblRespostes.setText("");
+            lblNomEl.setText("");
+        } else {
+            txtEncert.setBackground(Color.RED);
+            lblRespostes.setText(numAt + ", " + simbol);
+            lblNomEl.setText(key + ":");
+        }
+        
+        int percentatge = numEncerts * 100 / intents;
+        txtEncert.setText(String.valueOf(percentatge) + " %");
+        
+   
+        lblInfo.setVisible(true);
+        
+        DefaultListModel modelo = (DefaultListModel) jList1.getModel();
+        int index = jList1.getSelectedIndex();
+        modelo.remove(index);
+        jList1.setModel(modelo);
+        
+        btnValida.setEnabled(false);
+        
+        String nRestants = String.valueOf(Integer.valueOf(txtRestants.getText()) - 1);
+        txtRestants.setText(nRestants);
+        
+        if (nRestants.equals("0")) {
+            preguntaNovaPartida();
+        }
+
+    }                                         
+    
+    public void preguntaNovaPartida() {
+        int resp = JOptionPane.showConfirmDialog(null, "Vols tornar a jugar?", "", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (resp == 0) {
+            novaPartida();
+            
+        }
+        configuracioInicial();
+    }
+    
+    public void novaPartida() {
+        txtEncert.setText("");
+        txtEncert.setBackground(Color.WHITE);
+        txtRestants.setText("");
+        blocS.setSelected(false);
+        blocP.setSelected(false);
+        blocD.setSelected(false);
+        blocF.setSelected(false);
+        btnInicia.setEnabled(true);
+        blocS.setEnabled(true);
+        blocP.setEnabled(true);
+        blocD.setEnabled(true);
+        blocF.setEnabled(true);
+        intents = 0;
+        numEncerts = 0;
+        DefaultListModel modelo = (DefaultListModel) jList1.getModel();
+        modelo.removeAllElements();
+        jList1.setModel(modelo);
+        
+    }
+    
+    public void afegeixBlocLlista(HashMap bloc) {
+        
+        for (Object nom : bloc.keySet()) {
+            
+            demoList.addElement(nom);
+        }
+        
+    }
+    
+    public void completaLlista() {
+        jList1.setModel(demoList);
+    }
+    
+    public void ableOpcions() {
+        blocS.setEnabled(false);
+        blocP.setEnabled(false);
+        blocD.setEnabled(false);
+        blocF.setEnabled(false);
+        btnInicia.setEnabled(false);
+        btnReinicia.setEnabled(true);
+        btnAjuda.setEnabled(true);
+        jList1.setEnabled(true);
+    }
+    
+    private ImageIcon crearImatge(String path) {
+        java.net.URL imgURL = Vista.class.getResource(path);
+        
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Fitxer no trobat: " + path);
+            return null;
+        }
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JCheckBox blocD;
+    private javax.swing.JCheckBox blocF;
+    private javax.swing.JCheckBox blocP;
+    private javax.swing.JCheckBox blocS;
+    private javax.swing.JButton btnAjuda;
+    private javax.swing.JButton btnInicia;
+    private javax.swing.JButton btnReinicia;
+    private javax.swing.JButton btnValida;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblError;
+    private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblNom;
+    private javax.swing.JLabel lblNomEl;
+    private javax.swing.JLabel lblRespostes;
+    private javax.swing.JPanel pnlElement;
+    private javax.swing.JTextField txtEncert;
+    private javax.swing.JTextField txtNumAt;
+    private javax.swing.JTextField txtRestants;
+    private javax.swing.JTextField txtSimbol;
+    // End of variables declaration                   
+
+}

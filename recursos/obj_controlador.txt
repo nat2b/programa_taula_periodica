@@ -1,0 +1,46 @@
+
+package taulaperiodica;
+
+import java.util.HashMap;
+
+/**
+ *
+ * @author natal
+ */
+public class Controlador {
+    private TaulaPeriodica tP;
+    private Vista vista;
+
+    public Controlador(TaulaPeriodica tP) {
+        this.tP = tP;
+    }
+    
+
+    public HashMap getBlocS(){
+        return tP.getBlocS();
+    }
+    
+    public HashMap getBlocP(){
+        return tP.getBlocP();
+    }
+    
+    public HashMap getBlocD(){
+        return tP.getBlocD();
+    }
+    
+    public HashMap getBlocF(){
+        return tP.getBlocF();
+    }
+
+    public void setVista(Vista vista) {
+        this.vista = vista;
+    }
+    
+    public String getSpecificValue(String key){
+        return tP.getSpecificValue(key);
+    }
+
+  
+    
+    
+}

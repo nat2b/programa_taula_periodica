@@ -1,0 +1,191 @@
+
+package taulaperiodica;
+
+import java.util.HashMap;
+
+/**
+ *
+ * @author natal
+ */
+public class TaulaPeriodica {
+
+    private HashMap<String, String> blocS;
+    private HashMap<String, String> blocP;
+    private HashMap<String, String> blocD;
+    private HashMap<String, String> blocF;
+
+    public TaulaPeriodica() {
+        blocS = new HashMap<>();
+        blocP = new HashMap<>();
+        blocD = new HashMap<>();
+        blocF = new HashMap<>();
+
+        afegeixElements();
+    }
+
+    private void afegeixElements() {
+        //valors semparats en format CSV
+        // s = blau
+        // d = vermell
+        //p = verd
+        //f = tronja
+
+        //bloc s
+        blocS.put("Hidrogen", "H,1,S");
+        blocS.put("Heli", "He,2,S");
+        blocS.put("Liti", "Li,3,S");
+        blocS.put("Beril·li", "Be,4,S");
+        blocS.put("Sodi", "Na,11,S");
+        blocS.put("Magnesi", "Mg,12,S");
+        blocS.put("Potasi", "K,19,S");
+        blocS.put("Calci", "Ca,20,S");
+        blocS.put("Rubidi", "Rb,37,S");
+        blocS.put("Estronci", "Sr,38,S");
+        blocS.put("Cesi", "Cs,55,S");
+        blocS.put("Bari", "Ba,56,S");
+        blocS.put("Franci", "Fr,87,S");
+        blocS.put("Radi", "Ra,88,S");
+
+        //bloc p
+        blocP.put("Bor", "B,5,P");
+        blocP.put("Carboni", "C,6,P");
+        blocP.put("Nitrogen", "N,7,P");
+        blocP.put("Oxigen", "O,8,P");
+        blocP.put("Fluor", "F,9,P");
+        blocP.put("Neó", "Ne,10,P");
+        blocP.put("Alumini", "Al,13,P");
+        blocP.put("Silici", "Si,14,P");
+        blocP.put("Fósfor", "F,15,P");
+        blocP.put("Sofre", "S,16,P");
+        blocP.put("Clor", "Cl,17,P");
+        blocP.put("Argó", "Ar,18,P");
+        blocP.put("Gal·li", "Ga,31,P");
+        blocP.put("Germani", "Ge,32,P");
+        blocP.put("Arsènic", "As,33,P");
+        blocP.put("Seleni", "Se,34,P");
+        blocP.put("Brom", "Br,35,P");
+        blocP.put("Kiriptó", "Kr,36,P");
+        blocP.put("Indi", "In,49,P");
+        blocP.put("Estany", "Sn,50,P");
+        blocP.put("Antimoni", "Sb,51,P");
+        blocP.put("Tel·luri", "Te,52,P");
+        blocP.put("Iode", "I,53,P");
+        blocP.put("Xenó", "Xe,54,P");
+        blocP.put("Tal·li", "Tl,81,P");
+        blocP.put("Plom", "Pb,82,P");
+        blocP.put("Bismut", "Bi,83,P");
+        blocP.put("Poloni", "Po,84,P");
+        blocP.put("Àstat", "At,85,P");
+        blocP.put("Randó", "Rn,86,P");
+        blocP.put("Nihoni", "Nh,113,P");
+        blocP.put("Flerovi", "Fl,114,P");
+        blocP.put("Moscovi", "Mc,115,P");
+        blocP.put("Livermori", "Lv,116,P");
+        blocP.put("Tennes", "Ts,117,P");
+        blocP.put("Ogannessó", "Og,118,P");
+
+        //bloc d
+        blocD.put("Escandi", "Sc,21,D");
+        blocD.put("Titani", "Ti,22,D");
+        blocD.put("Vandi", "V,23,D");
+        blocD.put("Crom", "Cr,24,D");
+        blocD.put("Manganès", "Mn,25,D");
+        blocD.put("Ferro", "Fe,26,D");
+        blocD.put("Cobalt", "Co,27,D");
+        blocD.put("Níquel", "Ni,28,D");
+        blocD.put("Cobre", "Cu,29,D");
+        blocD.put("Zinc", "Zn,30,D");
+        blocD.put("Itri", "Y,39,D");
+        blocD.put("Zirconi", "Zr,40,D");
+        blocD.put("Niobi", "Nb,41,D");
+        blocD.put("Moldibè", "Mo,42,D");
+        blocD.put("Tecneci", "Tc,43,D");
+        blocD.put("Ruteni", "Ru,44,D");
+        blocD.put("Rodi", "Rh,45,D");
+        blocD.put("Pal·ladi", "Pd,46,D");
+        blocD.put("Plata", "Ag,47,D");
+        blocD.put("Cadmi", "Cd,48,D");
+        blocD.put("Luteci", "Lu,71,D");
+        blocD.put("Hafni", "Hf,72,D");
+        blocD.put("Tàntal", "Ta,73,D");
+        blocD.put("Tungstè", "W,74,D");
+        blocD.put("Reni", "Re,75,D");
+        blocD.put("Osmi", "Os,76,D");
+        blocD.put("Iridi", "Ir,77,D");
+        blocD.put("Platí", "Pt,78,D");
+        blocD.put("Or", "Au,79,D");
+        blocD.put("Mercuri", "Hg,80,D");
+        blocD.put("Lawrenci", "Lr,103,D");
+        blocD.put("Rutherfodi", "Rf,104,D");
+        blocD.put("Dubni", "Db,105,D");
+        blocD.put("Seaborgi", "Sg,106,D");
+        blocD.put("Bohri", "Bh,107,D");
+        blocD.put("Hassi", "Hs,108,D");
+        blocD.put("Metineri", "Mt,109,D");
+        blocD.put("Darmastatio", "Ds,110,D");
+        blocD.put("Roentegeni", "Rg,111,D");
+        blocD.put("Copernici", "Cn,112,D");
+
+        //bloc f
+        blocF.put("Lantani", "La,57,F");
+        blocF.put("Ceri", "Ce,58,F");
+        blocF.put("Praseodimi", "Pr,59,F");
+        blocF.put("Neodimi", "Nd,60,F");
+        blocF.put("Prometi", "Pm,61,F");
+        blocF.put("Samari", "Sm,62,F");
+        blocF.put("Europi", "Eu,63,F");
+        blocF.put("Gadolini", "Gd,64,F");
+        blocF.put("Terbi", "Tb,65,F");
+        blocF.put("Disprosi", "Dy,66,F");
+        blocF.put("Holmi", "Ho,67,F");
+        blocF.put("Erbi", "Er,68,F");
+        blocF.put("Tuli", "Tm,69,F");
+        blocF.put("Iterbi", "Yb,70,F");
+        blocF.put("Actini", "Ac,89,F");
+        blocF.put("Tori", "Th,90,F");
+        blocF.put("Protactini", "Pa,91,F");
+        blocF.put("Urani", "U,92,F");
+        blocF.put("Neptuni", "Np,93,F");
+        blocF.put("Plutoni", "Pu,94,F");
+        blocF.put("Americi", "Am,95,F");
+        blocF.put("Curi", "Cm,96,F");
+        blocF.put("Berkeli", "Bk,97,F");
+        blocF.put("Californio", "Cf,98,F");
+        blocF.put("Einsteni", "Es,99,F");
+        blocF.put("Fermi", "Fm,100,F");
+        blocF.put("Mendelevi", "Md,101,F");
+        blocF.put("Nobeli", "No,102,F");
+
+    }
+
+    public HashMap<String, String> getBlocS() {
+        return blocS;
+    }
+
+    public HashMap<String, String> getBlocP() {
+        return blocP;
+    }
+
+    public HashMap<String, String> getBlocD() {
+        return blocD;
+    }
+
+    public HashMap<String, String> getBlocF() {
+        return blocF;
+    }
+
+    public String getSpecificValue(String key) {
+        if (blocS.containsKey(key)) {
+            return blocS.get(key);
+        } else if (blocP.containsKey(key)) {
+            return blocP.get(key);
+        } else if (blocD.containsKey(key)) {
+            return blocD.get(key);
+        } else if (blocF.containsKey(key)) {
+            return blocF.get(key);
+        }
+
+        return null;
+    }
+
+}

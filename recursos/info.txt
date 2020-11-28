@@ -1,0 +1,5 @@
+finalitat: aprendre els elements de la taula periòdica amb un joc
+
+concepte: en aquest programa, pots escollir de quins bloc et vols examinar i segons la teva elecció, 
+t'anirà preguntant sobre els elemnts desitjats. També t'informa de les teves estadístiques 
+(encerts i elements restants)
