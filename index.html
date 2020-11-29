@@ -1,0 +1,167 @@
+﻿	<!DOCTYPE html>
+
+	<htm lang = "es">
+		<head>
+			<title>Informació programa "Taula Periòdica"</title>
+			<meta charset="utf-8"/>
+			<meta name = "description" content="Explicació taula periòdica"/>
+			<meta name = "author" content="Nàtàlia">
+			<meta name = "keywords" content="elements, taula periòdica, explicació">
+			<link rel="stylesheet" type="text/css" href="estil.css"> 
+		</head>
+
+		<body>
+
+			<h1>Programa taula periòdica</h1>
+
+			<p class = "descripcio"> En aquesta pàgina trobaràs tota la informació necessària per comprendre el 
+				<a target="_blank" class = "exterior" href = "https://www.youtube.com/watch?v=xBjzY7h86n4">programa de la taula periòdica</a> </p>
+
+			<nav>
+
+				<h3 id = "index" class = "capçalera">Índex</h3>
+				<ol>
+					<li> <a class = "interior" href = "#cap_concepte">Concepte</a>
+					<li> <a class = "interior" href = "#cap_java">Llenguatge de programació: Java</a> 
+					<li> <a class = "interior" href = "#cap_mvc">Patró d'arquitectura MVC</a>
+					<li> <a class = "interior" href = "#cap_organització">Organització del projecte</a>	
+				    <li> <a class = "interior" href = "#cap_codi">Codi (objectes i mètodes)</a>
+				    <li> <a class = "interior" href = "#cap_doc">Documentació (Javadoc i UML)</a>
+				    
+
+
+				</ol>
+
+			</nav>
+
+			<br><br>
+			<h4 id = "cap_concepte" class = "capçalera">Concepte</h5>
+			<p class = "descripcio">En aquest programa, pots escollir de quins bloc et vols examinar i segons la teva elecció, 
+				t'anirà preguntant sobre els elements desitjats. També t'informa de les teves estadístiques 
+				(encerts i elements restants) </p>
+
+			<br>
+			<h4 id = "cap_java" class = "capçalera">Llenguatge de programació: Java</h5>
+			<p class = "descripcio">Fet en 
+				<a  target="_blank" class = "exterior" href = "https://ca.wikipedia.org/wiki/Java_(llenguatge_de_programaci%C3%B3)">Java</a><br>
+				<img id = "im_java" src = "recursos/java.jpg" alt = "logo java">
+			</p>
+			<br>
+
+			<h4 id = "cap_mvc" class = "capçalera">Patró d'arquitectura MVC</h5>
+			<p>Per aquest projecte he utilitzat un patró d'arquitectura de software que es diu <a  target="_blank" class = "exterior" href = "https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador">MVC</a>, consisteix en separar la part lògica de la gràfica <br>
+				<br>
+				<img id = "im_mvc" src = "recursos/mvc.png" alt = "estructura mvc">
+			</p>	<br>
+
+			<h4 id = "cap_organització" class = "capçalera">Organització del projecte</h5>
+				<div class="row">
+  					<div class="column">
+  						<ul id ="llista_organitzacio">
+
+  							<li>Nom del projecte: TAULA PERIÒDICA
+  							<li>Paquets (carpetes) importants:
+  							<ul>
+  						    	<li>Paquet "imatges": dintre hi ha les imatges necessàries pel projecte
+  						    	<li>Paquet "taulaperiodica": classes (codi) del programa
+  						    </ul>
+  						    <li>Els altres paquets, en aquest cas, no són importants. Però, per exemple, si el programa tingués una conexió amb MySQL, dintre el paquet "Libraries" s'hauria d'afegir un fitxer ".jar"
+
+  						</ul>
+
+
+  					</div>
+ 					<div class="column">
+ 						<img id = "im_organitzacio" src = "recursos/organitzacio.PNG" alt = "organització projecte">
+ 					</div>
+				</div>
+				
+
+			<h4 id = "cap_codi" class = "capçalera">Codi</h5>
+			<ul>
+				<br>
+				<li class = "objectes_punts"><p class ="temes_obj">Principal</p>
+
+					<p class = "descripcio">Aquest objecte conté el mètode main (mètode que inicia el programa). Aquí es creen els altres objectes (26 línies):</p>
+					<embed class = "classes" id ="obj_principal" src="recursos/obj_principal.txt">
+				</li>
+
+
+
+				<br>
+			    <li><p class ="temes_obj">Vista</p>
+			    	<p class = "descripcio">Aquest objecte és l'encarregat de crear el JFrame (vista) de l'aplicació. Té una part gràfica (design) i una altre de codi(source):</p>
+			    	<ul>
+			    		<li> 
+			    			<p>Design -> a sota està la configuració inicial de la finestra, hi ha més codi per darrere però nó és visible:</p>
+			    			<img id = "im_vista" src = "recursos/vista_design.PNG" alt = "organització projecte">
+
+			    		</li> 
+
+			    		<li>
+			    			<p>Source (702 línies) -> aquí es posa funcionalitat i es configura l'estètica del disseny: </p>
+			    			<embed id ="source" class = "classes" src="recursos/obj_vista_source.txt">
+
+			    		</li>	    		
+			    	</ul>
+
+
+			    </li>
+
+				<br>
+				<li class = "objectes_punts"><p class ="temes_obj">Taula periòdica (191 línies):</p>
+					<p class = "descripcio">Aquesta classe conté l'informació de la taula periòdica i dels elements (símbol, nom i número atòmic). Per altre banda, té uns mètodes que permeten accedir a aquesta informació</p>
+					<embed class = "classes" id ="obj_principal" src="recursos/obj_taulaP.txt">
+
+
+				</li>
+
+
+				<br>
+				<li class = "objectes_punts"><p class ="temes_obj">Controlador (47 línies):</p>
+					<p class = "descripcio">La única funció del controlador és connectar el model (TaulaPeriodica.java) i la vista (Vista.java)
+					<embed class = "classes" id ="obj_principal" src="recursos/obj_controlador.txt">
+				</li>
+
+				<br>
+				<h4 id = "cap_doc" class = "capçalera">Documentació (
+				  <a target="_blank" class = "exterior" href = "https://es.wikipedia.org/wiki/Javadoc">Javadoc</a>)
+				 
+				  i 
+				  <a target="_blank" class = "exterior" href = "https://es.wikipedia.org/wiki/Lenguaje_unificado_de_modelado">UML</a></h4>
+				 
+
+				 <p class = "descripcio">Javadoc: documentació del projecte generada per l'IDE</p>
+					<a  target="_blank" href = "javadoc\index.html">Enllaç al JavaDoc del projecte</a>
+				<br><br><p class = "descripcio">UML: Esquema visual del projecte on es detallen atributs i mètodes</p>
+					<img id = "im_uml" src = "recursos/diagrama.png" alt = "diagrama uml">
+				
+
+
+				</li>
+
+			</ul>
+
+
+			
+
+
+
+
+
+			
+
+			
+		<footer>
+			&copy; nat2b_projectes 2020
+			<img id = "im_logo" src = "recursos/logo.png" alt = "logo nat2b_projectes">
+		</footer>
+
+
+	</body>
+
+</htm>
+
+
+
+
